@@ -1,0 +1,23 @@
+{
+  "name": "scheduler",
+  "version": "0.0.1",
+  "description": "scheduling app for small business",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lx8co/scheduler.git"
+  },
+  "author": "Fourat Janabi, Alexei Ferreira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lx8co/scheduler/issues"
+  },
+  "homepage": "https://github.com/Lx8co/scheduler#readme",
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "materialize-css": "^0.98.0"
+  }
+}
