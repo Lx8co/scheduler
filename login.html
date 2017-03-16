@@ -1,0 +1,229 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        
+        main {
+            flex: 1 0 auto;
+        }
+        
+        body {
+            background: #fff;
+        }
+        
+        .input-field input[type=date]:focus+label,
+        .input-field input[type=text]:focus+label,
+        .input-field input[type=email]:focus+label,
+        .input-field input[type=password]:focus+label {
+            color: #e91e63;
+        }
+        
+        .input-field input[type=date]:focus,
+        .input-field input[type=text]:focus,
+        .input-field input[type=email]:focus,
+        .input-field input[type=password]:focus {
+            border-bottom: 2px solid #e91e63;
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+    <!---->
+    <nav class="nav-extended white">
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo logo">
+                <img src="imgs/lx8_logo.svg" class="responsive-img logo blue-text" width="35vw" alt="lx8">
+            </a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="login.html"><i class="large material-icons blue-text">account_box</i></a></li>
+                <li><a href="collapsible.html"><i class="large material-icons blue-text">card_membership</i></a></li>
+                <li><a href="collapsible.html"><i class="large material-icons blue-text">polymer</i></a></li>
+                <li><a href="collapsible.html"><i class="large material-icons blue-text">insert_chart</i></a></li>
+
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="sass.html">PWA</a></li>
+                <li><a href="badges.html">Schedule Response</a></li>
+                <li><a href="collapsible.html">Clients Satisfaction</a></li>
+
+            </ul>
+        </div>
+        <div class="nav-content">
+            <ul class="tabs">
+                <li class="tab"><a href="#test1" class="blue-text">PWA</a></li>
+                <li class="tab"><a class="active blue-text" href="#test2">Schedule Response</a></li>
+                <li class="tab disabled"><a class="blue-text" href="#test3">Clients Satisfaction</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="section"></div>
+    <main>
+        <center>
+            <!--<img class="responsive-img" style="width: 250px;" src="http://i.imgur.com/ax0NCsK.gif" />-->
+            <div class="section"></div>
+
+            <h5 class="indigo-text">Por favor entre com a sua conta</h5>
+            <div class="section"></div>
+
+            <div class="container">
+                <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+                    <form class="col s12" method="post">
+                        <div class='row'>
+                            <div class='col s12'>
+                            </div>
+                        </div>
+
+                        <div class='row'>
+
+                            <div class='input-field col s12'>
+                                <i class="small material-icons prefix">iperm_identity</i>
+                                <input class='validate' type='email' name='email' id='email' />
+                                <label for='email'>Entre seu email</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Area de consulta" id="title" type="text" class="validate">
+                                <label for="title">Especialidade</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="input-field col s12">
+                            <select>
+                            <option value="" disabled selected>Sexo</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Feminino</option>
+                            <option value="3">Outros</option>
+                            </select>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label>Nascimento</label>
+                                <input id="beginDate" type="date" class="datepicker">
+
+                            </div>
+                        </div>
+                        <div>
+                        <label>Consulta</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <select multiple>
+                                <option value="" disabled selected>Planos de Saude</option>
+                                <option value="1">Amil</option>
+                                <option value="2">Bradesco</option>
+                                <option value="3">Cassi</option>
+                                <option value="3">Sulamerica</option>
+                                </select>
+                        </div>
+                            <div>
+                                <label>Datas</label>
+                            </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label>Data da Consulta</label>
+                                <input id="beginDate" type="date" class="datepicker">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Idade?" id="organizer" type="text" class="validate">
+                                <label for="organizer">Responsavel</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="http://www.facebook.com/fulano" id="website" type="text" class="validate">
+                                <label for="website">Facebook</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="description" class="materialize-textarea" length="140"></textarea>
+                                <label for="description">Descreva seus sintomas:</label>
+                            </div>
+                        </div>
+
+                        <div class='row'>
+                            <div class='input-field col s12'>
+                                <input class='validate' type='password' name='password' id='password' />
+                                <label for='password'>Entre seu password</label>
+                            </div>
+                        </div>
+                        <center>
+                            <div class='row'>
+                                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
+                            </div>
+                            <div class='row'>
+                                                                <label style='float: right;'>             
+								<a class='pink-text' href='#!'><b>Esqueceu o Password?</b></a>
+                            </label>
+                            </div>
+                        </center>
+                        <br />
+
+                    </form>
+                </div>
+            </div>
+            <a href="#!">Crie sua conta</a>
+        </center>
+
+        <div class="section"></div>
+        <div class="section"></div>
+    </main>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+</body>
+<footer class="page-footer blue">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Nosso papel e o seu sucesso.</h5>
+                <p class="grey-text text-lighten-4">Tratamos os seus clientes como os nossos, pois o nosso sucesso depende do seu.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Mais informacoes</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Faca o seu plano conosco</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Veja nossos produtos</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Entre com contato com a LX8</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Saiba mais sobre as technologias que usamos.</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2017 Lx8 Copyright
+            <a class="grey-text text-lighten-4 right" href="#!">Sobre a Lx8</a>
+        </div>
+    </div>
+</footer>
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+
+</html>
