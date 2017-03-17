@@ -40,5 +40,8 @@ exports.welcomeMessage = functions
 /*
 exports.sendMessage = functions
                         .database
-                        .ref('')
+                        .ref('/appointments/{appt')
+                        .onWrite(event => {
+
+                        });
 */
