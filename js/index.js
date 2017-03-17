@@ -6,14 +6,13 @@ function scheduler () {
     this.signInButton = document.getElementById('sign-in');
     this.signOutButton = document.getElementById('sign-out');
 
-    this.itemForm = document.getElementById('addItem');
+    this.addUserForm = document.getElementById('addUser');
     //this.saveTaskButton = document.getElementById('saveTask');
 
     // Saves message on form submit.
-    this.itemForm.addEventListener('submit', this.saveItem.bind(this));
+    this.addUserForm.addEventListener('submit', this.addUser.bind(this));
     this.signOutButton.addEventListener('click', this.signOut.bind(this));
     this.signInButton.addEventListener('click', this.signIn.bind(this));
-
     
     this.initFirebase();
 }
@@ -60,7 +59,7 @@ scheduler.prototype.onAuthStateChanged = function(user) {
     //this.userPic.removeAttribute('hidden');
     this.signOutButton.removeAttribute('hidden');
     this.signInButton.setAttribute('hidden', 'true');
-    this.loadTodos();
+    
     // We save the Firebase Messaging Device token and enable notifications.
     
   } else { // User is signed out!
@@ -86,24 +85,10 @@ scheduler.prototype.checkSetup = function() {
   }
 };
 
+
 scheduler.prototype.loadTodos = function () {
-    var pathReference = this.storage.ref('todos'), todoURL;
-    /*
-    pathReference.getDownloadURL().then(function(url) { 
-        
-        todoURL = url;
-
-        var xhr = new XMLHttpRequest();
-        xhr.responseType = 'json';
-        console.log('Getting ToDos');
-        xhr.onload = function(e) {
-            window.app.$emit('network', xhr.response)
-        };
-        xhr.open('GET', todoURL);
-        xhr.send();
-    });*/
-
-    var todos = firebase.database().ref('todos');
+    //var pathReference = this.storage.ref('todos'), todoURL;
+    //var todos = firebase.database().ref('todos');
 
     todos.on('value', function(snapshot) {
         //updateStarCount(postElement, snapshot.val());
@@ -119,8 +104,7 @@ scheduler.prototype.loadTodos = function () {
             })
         }
         console.log(snapshot.val())
-        console.log(todosArray)
-        window.app.$emit('network', todosArray)
+        
     });
 };
 
@@ -129,15 +113,43 @@ scheduler.prototype.saveTodos = function (e) {
         e.preventDefault();
 
     console.log('submit');
+
     /*
-    var ref = this.storageRef.child("todos");
-    var todos = JSON.stringify(window.app.allTodos);
-    ref.putString(todos).then(function(snapshot) {
-        console.log('Uploaded a raw string!');
-        console.log(todos);
-        window.app.$emit('network', JSON.parse(todos));
-    });
+        var ref = this.storageRef.child("todos");
+        var todos = JSON.stringify(window.app.allTodos);
+        ref.putString(todos).then(function(snapshot) {
+            console.log('Uploaded a raw string!');
+            console.log(todos);
+            window.app.$emit('network', JSON.parse(todos));
+        });
     */
+};
+
+scheduler.prototype.addUser = function (e) {
+    if (e)
+        e.preventDefault();
+
+    var name = e.target[0].value,
+        email = e.target[1].value,
+        password = e.target[2].value;
+
+    var user = {
+        name,
+        email,
+        password
+    };
+
+    this.database.ref('users/' + name).set({
+        name: user.name,
+        email: user.email,
+        password: user.password,
+    });
+
+    console.log('form submit');
+    console.log(e);
+    console.log(e.target[0].value)
+    console.log(e.target[1].value)
+    console.log(e.target[2].value)
 };
 
 scheduler.prototype.updateTodo = function (todo) {

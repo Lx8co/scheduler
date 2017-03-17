@@ -1,9 +1,7 @@
 (function($){
   $(function(){
-
     $('.button-collapse').sideNav();
     $('.parallax').parallax();
-
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 
@@ -15,10 +13,12 @@ $('.datepicker').pickadate({
     yearRange: "-60:+0"
   });
 
-var picker = $('#beginDate').pickadate('picker');
-picker.set('select', new Date());
-var picker = $('#endDate').pickadate('picker');
-picker.set('select', new Date());
+$(document).ready(function () {
+  var picker = $('#beginDate').pickadate('picker');
+  picker.set('select', new Date());
+  var picker = $('#endDate').pickadate('picker');
+  picker.set('select', new Date());
 
-
- $('select').material_select();
+  $('select').material_select();
+});
+ 

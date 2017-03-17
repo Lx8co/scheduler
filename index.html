@@ -17,29 +17,31 @@
   <script type="text/javascript" src="js/materialize.min.js"></script>
 
   <!-- Personal CSS -->
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 
 
-<!-- Nav Bar-->
-
-<nav class="nav-extended white">
+  <!-- Nav Bar-->
+  <nav class="nav-extended white">
     <div class="nav-wrapper">
       <a href="http://www.lx8.co" class="brand-logo logo">
         <img src="imgs/lx8_logo.svg" class="responsive-img logo blue-text" width="35vw" alt="lx8">
       </a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-         <li><a href="login.html"><i class="large material-icons blue-text">account_box</i></a></li>
+        <li><a href="#" id="sign-in">SIGN IN</a></li>
+        <li><a href="#" id="sign-out" hidden>SIGN OUT</a></li>
+        <!--
          <li><a href="collapsible.html"><i class="large material-icons blue-text">card_membership</i></a></li>
          <li><a href="collapsible.html"><i class="large material-icons blue-text">polymer</i></a></li>
          <li><a href="collapsible.html"><i class="large material-icons blue-text">insert_chart</i></a></li>
+         -->
 
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="sass.html">PWA</a></li>
         <li><a href="badges.html">Schedule Response</a></li>
         <li><a href="collapsible.html">Clients Satisfaction</a></li>
-       
+
       </ul>
     </div>
     <div class="nav-content">
@@ -56,8 +58,8 @@
   <div id="test4" class="col s12">Test 4</div>-->
 
 
-<!-- Parallax Presentation -->
-<div id="index-banner" class="parallax-container">
+  <!-- Parallax Presentation -->
+  <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
@@ -66,7 +68,8 @@
           <h5 class="header col s12 light">Sua forma mais moderna de impressionar seus clientes</h5>
         </div>
         <div class="row center">
-          <a href="http://www.lx8.co" id="download-button" class="btn-large waves-effect waves-light blue lighten-1">Feche seu plano!</a>
+          <a id="download-button" href="#modal1" class="btn-large waves-effect waves-light blue lighten-1">Create User</a>
+          <a id="download-button2" href="#modal2" class="btn-large waves-effect waves-light blue lighten-1">Schedule Appointment</a>
         </div>
         <br><br>
 
@@ -86,7 +89,8 @@
             <h2 class="center blue-text"><i class="material-icons">flash_on</i></h2>
             <h5 class="center">Se comunique rapido e economoize</h5>
 
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.
+              Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
           </div>
         </div>
 
@@ -131,7 +135,12 @@
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
           <h4>Contact Us</h4>
-          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque
+            tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a
+            sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam
+            eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum
+            sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum
+            primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
         </div>
       </div>
 
@@ -150,9 +159,96 @@
     <div class="parallax"><img src="imgs/background3.jpg" alt="Unsplashed img/background img 3"></div>
   </div>
   </div>
+
+  <!-- ADD USER MODAL -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <form class="col s12" action="post" id="addUser">
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Nome?" id="nome" type="text" class="validate">
+            <label for="organizer">Nome</label>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='input-field col s12'>
+            <i class="small material-icons prefix">iperm_identity</i>
+            <input class='validate' type='email' name='email' id='email' />
+            <label for='email'>Entre seu email</label>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input class='validate' type='password' name='password' id='password' />
+            <label for='password'>Entre seu password</label>
+          </div>
+        </div>
+
+        <div class='row'>
+          <button name='btn_login' type='submit' class='col s12 btn btn-large waves-effect indigo'>Create User</button>
+        </div>
+
+        <!--
+            <div class='row'>
+                <label style='float: right;'>             
+                    <a class='pink-text' href='#!'><b>Esqueceu o Password?</b></a>
+                </label>
+            </div>
+            -->
+      </form>
+
+    </div>
+    <div class="modal-footer">
+      <!--<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>-->
+    </div>
+  </div>
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <form class="col s12" action="post" id="addAppt">
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Nome?" id="nome" type="text" class="validate">
+            <label for="organizer">Nome</label>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <label>Data da Consulta</label>
+                <input id="apptDate" type="date" class="datepicker">
+
+            </div>
+          </div>
+
+
+        <div class='row'>
+          <button name='btn_login' type='submit' class='col s12 btn btn-large waves-effect indigo'>Create User</button>
+          
+        </div>
+
+        <!--
+            <div class='row'>
+                <label style='float: right;'>             
+                    <a class='pink-text' href='#!'><b>Esqueceu o Password?</b></a>
+                </label>
+            </div>
+            -->
+      </form>
+
+    </div>
+    <div class="modal-footer">
+      <!--<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>-->
+    </div>
+  </div>
+
 </body>
 
-
+<!--
 <footer class="page-footer blue">
   <div class="container">
     <div class="row">
@@ -178,9 +274,37 @@
     </div>
   </div>
 </footer>
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+-->
+<!--  Scripts-->
+<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAQEj2Q9LeguanvoWCnMZ53ZXmxUqYT1Fo",
+    authDomain: "lx8scheduler.firebaseapp.com",
+    databaseURL: "https://lx8scheduler.firebaseio.com",
+    storageBucket: "lx8scheduler.appspot.com",
+    messagingSenderId: "629274614067"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/index.js"></script>
+<script>
+    $(document).ready(function () {
+      $('.modal').modal();
+      $('.datepicker').pickadate({
+        // min: new Date(),
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 100, // Creates a dropdown of 15 years to control year
+        firstDay: 1,
+        yearRange: "-60:+0"
+      });
+
+      var picker = $('#apptDate').pickadate('picker');
+      picker.set('select', new Date());
+    });
+</script>
 
 </html>

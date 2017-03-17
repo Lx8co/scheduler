@@ -88,13 +88,9 @@
                 <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
                     <form class="col s12" method="post">
-                        <div class='row'>
-                            <div class='col s12'>
-                            </div>
-                        </div>
+                        
 
                         <div class='row'>
-
                             <div class='input-field col s12'>
                                 <i class="small material-icons prefix">iperm_identity</i>
                                 <input class='validate' type='email' name='email' id='email' />
@@ -102,42 +98,11 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input placeholder="Area de consulta" id="title" type="text" class="validate">
-                                <label for="title">Especialidade</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <div class="input-field col s12">
-                            <select>
-                            <option value="" disabled selected>Sexo</option>
-                            <option value="1">Masculino</option>
-                            <option value="2">Feminino</option>
-                            <option value="3">Outros</option>
-                            </select>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <label>Nascimento</label>
-                                <input id="beginDate" type="date" class="datepicker">
 
-                            </div>
-                        </div>
-                        <div>
-                        <label>Consulta</label>
-                            </div>
-                            <div class="input-field col s12">
-                                <select multiple>
-                                <option value="" disabled selected>Planos de Saude</option>
-                                <option value="1">Amil</option>
-                                <option value="2">Bradesco</option>
-                                <option value="3">Cassi</option>
-                                <option value="3">Sulamerica</option>
-                                </select>
-                        </div>
-                            <div>
-                                <label>Datas</label>
-                            </div>
+
+
+
+                        <!--
                         <div class="row">
                             <div class="input-field col s12">
                                 <label>Data da Consulta</label>
@@ -145,42 +110,32 @@
 
                             </div>
                         </div>
+                        -->
+                        <!--
                         <div class="row">
                             <div class="input-field col s12">
                                 <input placeholder="Idade?" id="organizer" type="text" class="validate">
                                 <label for="organizer">Responsavel</label>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input placeholder="http://www.facebook.com/fulano" id="website" type="text" class="validate">
-                                <label for="website">Facebook</label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <textarea id="description" class="materialize-textarea" length="140"></textarea>
-                                <label for="description">Descreva seus sintomas:</label>
-                            </div>
-                        </div>
+                        -->
 
                         <div class='row'>
                             <div class='input-field col s12'>
-                                <input class='validate' type='password' name='password' id='password' />
+                                <input class='validate' type='password' name='password' id='password'/>
                                 <label for='password'>Entre seu password</label>
                             </div>
                         </div>
-                        <center>
-                            <div class='row'>
-                                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
-                            </div>
-                            <div class='row'>
-                                                                <label style='float: right;'>             
-								<a class='pink-text' href='#!'><b>Esqueceu o Password?</b></a>
+                        
+                        <div class='row'>
+                            <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
+                        </div>
+                        <div class='row'>
+                            <label style='float: right;'>             
+                                <a class='pink-text' href='#!'><b>Esqueceu o Password?</b></a>
                             </label>
-                            </div>
-                        </center>
+                        </div>
+                        
                         <br />
 
                     </form>
@@ -224,6 +179,6 @@
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="js/materialize.js"></script>
-<script src="js/init.js"></script>
+<script defer src="js/init.js"></script>
 
 </html>
