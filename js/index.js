@@ -7,10 +7,12 @@ function scheduler () {
     this.signOutButton = document.getElementById('sign-out');
 
     this.addUserForm = document.getElementById('addUser');
+    this.addApptForm = document.getElementById('addAppt');
     //this.saveTaskButton = document.getElementById('saveTask');
 
     // Saves message on form submit.
     this.addUserForm.addEventListener('submit', this.addUser.bind(this));
+    this.addApptForm.addEventListener('submit', this.addAppt.bind(this));
     this.signOutButton.addEventListener('click', this.signOut.bind(this));
     this.signInButton.addEventListener('click', this.signIn.bind(this));
     
@@ -150,6 +152,24 @@ scheduler.prototype.addUser = function (e) {
     console.log(e.target[0].value)
     console.log(e.target[1].value)
     console.log(e.target[2].value)
+};
+
+scheduler.prototype.addAppt = function (e) {
+    if (e)
+        e.preventDefault();
+
+    var name = e.target[0].value,
+        date = e.target[1].value;
+
+    var appointment = {
+        name,
+        date
+    };
+
+    this.database.ref('appointments/' + name).set({
+        name: appointment.name,
+        appointment: appointment.date
+    });
 };
 
 scheduler.prototype.updateTodo = function (todo) {
