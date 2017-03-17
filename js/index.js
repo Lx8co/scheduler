@@ -133,18 +133,21 @@ scheduler.prototype.addUser = function (e) {
 
     var name = e.target[0].value,
         email = e.target[1].value,
-        password = e.target[2].value;
+        password = e.target[3].value,
+        phone = e.target[2].value
 
     var user = {
         name,
         email,
-        password
+        password,
+        phone
     };
 
     this.database.ref('users/' + name).set({
         name: user.name,
         email: user.email,
         password: user.password,
+        phone: user.phone
     });
 
     console.log('form submit');
