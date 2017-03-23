@@ -87,46 +87,6 @@ scheduler.prototype.checkSetup = function() {
   }
 };
 
-
-scheduler.prototype.loadTodos = function () {
-    //var pathReference = this.storage.ref('todos'), todoURL;
-    //var todos = firebase.database().ref('todos');
-
-    todos.on('value', function(snapshot) {
-        //updateStarCount(postElement, snapshot.val());
-        let todos = snapshot.val();
-        let todosArray = [];
-
-        for (let todo in todos) {
-            todosArray.push({
-                "completed": todos[todo].completed,
-                "dueDate": todos[todo].dueDate,
-                "name": todos[todo].name,
-                "priority": todos[todo].priority
-            })
-        }
-        console.log(snapshot.val())
-        
-    });
-};
-
-scheduler.prototype.saveTodos = function (e) {
-    if (e)
-        e.preventDefault();
-
-    console.log('submit');
-
-    /*
-        var ref = this.storageRef.child("todos");
-        var todos = JSON.stringify(window.app.allTodos);
-        ref.putString(todos).then(function(snapshot) {
-            console.log('Uploaded a raw string!');
-            console.log(todos);
-            window.app.$emit('network', JSON.parse(todos));
-        });
-    */
-};
-
 scheduler.prototype.addUser = function (e) {
     if (e)
         e.preventDefault();
@@ -149,6 +109,8 @@ scheduler.prototype.addUser = function (e) {
         password: user.password,
         phone: user.phone
     });
+
+    $('#modal1').modal('close');
 
     console.log('form submit');
     console.log(e);
@@ -173,6 +135,8 @@ scheduler.prototype.addAppt = function (e) {
         name: appointment.name,
         appointment: appointment.date
     });
+
+    $('#modal2').modal('close');
 };
 
 scheduler.prototype.updateTodo = function (todo) {
@@ -183,20 +147,6 @@ scheduler.prototype.updateTodo = function (todo) {
     this.database.ref('todos/' + id).update(todo);
 };
 
-scheduler.prototype.saveItem = function (e) {
-    //function writeUserData(userId, name, email, imageUrl) {
-    e.preventDefault();
-    let todo = window.app.firstTodo;
-    let id = (todo.name + todo.dueDate).replace(/\//g, '');
-    console.log('Save to DB');
-    this.database.ref('todos/' + id).set({
-        name: todo.name,
-        dueDate: todo.dueDate,
-        priority: todo.priority,
-        completed: todo.completed
-    });
-
-};
 
 window.onload = function() {
   window.scheduler = new scheduler();
