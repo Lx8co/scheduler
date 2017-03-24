@@ -61,7 +61,7 @@ scheduler.prototype.onAuthStateChanged = function(user) {
     //this.userPic.removeAttribute('hidden');
     this.signOutButton.removeAttribute('hidden');
     this.signInButton.setAttribute('hidden', 'true');
-    
+    this.loadAppts();
     // We save the Firebase Messaging Device token and enable notifications.
     
   } else { // User is signed out!
@@ -147,6 +147,28 @@ scheduler.prototype.updateTodo = function (todo) {
     this.database.ref('todos/' + id).update(todo);
 };
 
+scheduler.prototype.loadAppts = function () {
+    console.log('loading appointments');
+    this.appointmentsRef = this.database.ref('appointments/');
+    console.log(this.appointmentsRef);
+    this.appointmentsRef.off();
+
+    var setAppointments = function (data) {
+        console.log(data.val())
+        var appointments = data.val();
+        var byArray = [];
+
+        for (let appt in appointments) {
+            byArray.push(appointments[appt])
+        }
+
+        app.$emit('appointments', byArray);
+    };
+
+    this.appointmentsRef.limitToLast(12).on('value', setAppointments);
+    //this.appointmentsRef.limitToLast(12).on('child_added', setAppointments);
+    //this.appointmentsRef.limitToLast(12).on('child_changed', setAppointments);
+};
 
 window.onload = function() {
   window.scheduler = new scheduler();

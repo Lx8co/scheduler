@@ -47,10 +47,7 @@ exports.confirmAppointment = functions
                                 var findUser = function (data) {
                                     var name = appt.name;
                                     var val = data.val();
-                                    console.log("VALUE: ", val);
-
                                     var user = val[appt.name].phone;
-                                    console.log("USER: ", user);
                                     sendMessage(user); //user = phone #
                                     
                                 }
