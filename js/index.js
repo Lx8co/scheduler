@@ -1,4 +1,4 @@
-function scheduler () {
+function scheduler() {
     this.checkSetup();
 
     // Shortcuts to DOM Elements.
@@ -171,5 +171,5 @@ scheduler.prototype.loadAppts = function () {
 };
 
 window.onload = function() {
-  window.scheduler = new scheduler();
+  
 };

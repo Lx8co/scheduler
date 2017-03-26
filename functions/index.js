@@ -70,10 +70,8 @@ exports.confirmAppointment = functions
                                             console.log(message); 
                                     });
                                 }
-
-
+        
                                 return event.data.ref//.parent.set(original);
-
                             });
 
 /*

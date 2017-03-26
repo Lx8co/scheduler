@@ -230,6 +230,56 @@
     </div>
   </div>
 
+  <!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="https://unpkg.com/vue@2.2.4"></script>
+<script src="js/app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+    var config = {};
+    console.log("preloading")
+    $.getJSON('/js/firebase.config.json', function (data) {
+      console.log("loaded");
+      config = {
+        apiKey: data.apiKey,
+        authDomain: data.authDomain,
+        databaseURL: data.databaseURL,
+        storageBucket: data.storageBucket,
+        messagingSenderId: data.messagingSenderId,
+      };
+      
+      firebase.initializeApp(config);
+      window.scheduler = new scheduler();
+  }).fail(function( jqxhr, textStatus, error ) {
+    var err = textStatus + ", " + error;
+    console.log( "Request Failed: " + err );
+});
+</script>
+
+<script>
+    $(document).ready(function () {
+      console.log('hello')
+      $('.button-collapse').sideNav();
+      //$('.parallax').parallax();
+      $('.modal').modal();
+      $('.datepicker').pickadate({
+        // min: new Date(),
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 100, // Creates a dropdown of 15 years to control year
+        firstDay: 1,
+        yearRange: "-60:+0"
+      });
+
+      var picker = $('#apptDate').pickadate('picker');
+      picker.set('select', new Date());
+
+      $('ul.tabs').tabs();
+    });
+</script>
+<script src="js/index.js"></script>
+
 </body>
 <!--
   <footer class="page-footer blue">
@@ -258,49 +308,5 @@
     </div>
   </footer>
 -->
-<!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="js/materialize.min.js"></script>
-<script src="https://unpkg.com/vue@2.2.4"></script>
-<script src="js/app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAQEj2Q9LeguanvoWCnMZ53ZXmxUqYT1Fo",
-    authDomain: "lx8scheduler.firebaseapp.com",
-    databaseURL: "https://lx8scheduler.firebaseio.com",
-    storageBucket: "lx8scheduler.appspot.com",
-    messagingSenderId: "629274614067"
-  };
-  firebase.initializeApp(config);
-</script>
-<script src="js/index.js"></script>
-<script>
-  (function($){
-    $(function(){
-      
-    }); // end of document ready
-    
-  })(jQuery); // end of jQuery name space
-
-    $(document).ready(function () {
-      $('.button-collapse').sideNav();
-      //$('.parallax').parallax();
-      $('.modal').modal();
-      $('.datepicker').pickadate({
-        // min: new Date(),
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 100, // Creates a dropdown of 15 years to control year
-        firstDay: 1,
-        yearRange: "-60:+0"
-      });
-
-      var picker = $('#apptDate').pickadate('picker');
-      picker.set('select', new Date());
-
-      $('ul.tabs').tabs();
-    });
-</script>
 
 </html>
