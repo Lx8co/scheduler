@@ -41,7 +41,6 @@ scheduler.prototype.signInFB = function () {
 
 // Signs-out of Friendly Chat.
 scheduler.prototype.signOut = function() {
-    console.log("signout");
     this.auth.signOut();
 };
 
@@ -112,11 +111,6 @@ scheduler.prototype.addUser = function (e) {
 
     $('#modal1').modal('close');
 
-    console.log('form submit');
-    console.log(e);
-    console.log(e.target[0].value)
-    console.log(e.target[1].value)
-    console.log(e.target[2].value)
 };
 
 scheduler.prototype.addAppt = function (e) {
@@ -148,13 +142,10 @@ scheduler.prototype.updateTodo = function (todo) {
 };
 
 scheduler.prototype.loadAppts = function () {
-    console.log('loading appointments');
     this.appointmentsRef = this.database.ref('appointments/');
-    console.log(this.appointmentsRef);
     this.appointmentsRef.off();
 
     var setAppointments = function (data) {
-        console.log(data.val())
         var appointments = data.val();
         var byArray = [];
 

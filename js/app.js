@@ -6,6 +6,5 @@ var app = new Vue({
 });
 
 app.$on('appointments', function (data) {
-    console.log(data)
     this.appointments = data;
 });
